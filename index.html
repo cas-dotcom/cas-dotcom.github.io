@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YOUR NAME – Resume</title>
+  <meta name="description" content="Resume for YOUR NAME: education, experience, projects, and skills." />
+  <link rel="preload" href="images/headshot.jpg" as="image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header role="banner" class="site-header">
+    <div class="container">
+      <img class="headshot" src="images/headshot.jpg" alt="Professional headshot of YOUR NAME" width="160" height="160" />
+      <div>
+        <h1>YOUR NAME</h1>
+        <p>
+          <a href="mailto:you@knights.ucf.edu">you@knights.ucf.edu</a> ·
+          <a href="https://www.linkedin.com/in/your-handle" rel="me">LinkedIn</a> ·
+          <a href="https://github.com/your-username" rel="me">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <nav aria-label="Primary" class="nav">
+      <ul class="container">
+        <li><a aria-current="page" href="index.html">Resume</a></li>
+        <li><a href="project1.html">Project 1</a></li>
+        <li><a href="project2.html">Project 2</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="container grid two">
+      <article aria-labelledby="objective-heading" class="card">
+        <h2 id="objective-heading">Professional Objective</h2>
+        <p>1–2 sentence objective tailored to internships/jobs you’re targeting.</p>
+      </article>
+
+      <article aria-labelledby="education-heading" class="card">
+        <h2 id="education-heading">Education</h2>
+        <h3>University of Central Florida (UCF)</h3>
+        <p>B.S. in YOUR MAJOR, Expected: MONTH YEAR · GPA: X.XX</p>
+        <ul>
+          <li>Relevant coursework: ...</li>
+          <li>Awards/Honors (optional): ...</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="container grid two">
+      <article aria-labelledby="experience-heading" class="card">
+        <h2 id="experience-heading">Relevant Experience</h2>
+        <!-- If none, delete this whole article -->
+        <section class="job">
+          <h3>Role – Company</h3>
+          <p class="muted">City, ST · Start – End</p>
+          <ul>
+            <li>Quantified impact bullet.</li>
+            <li>Another bullet.</li>
+            <li>Another bullet.</li>
+          </ul>
+        </section>
+      </article>
+
+      <article aria-labelledby="projects-heading" class="card">
+        <h2 id="projects-heading">Projects</h2>
+        <ul>
+          <li><a href="project1.html">Project 1 Title</a> – 1-line summary.</li>
+          <li><a href="project2.html">Project 2 Title</a> – 1-line summary.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="container grid two">
+      <article aria-labelledby="skills-heading" class="card">
+        <h2 id="skills-heading">Skills</h2>
+        <ul class="tags" role="list">
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Git</li><li>Linux</li><li>Wireshark</li><li>Python</li>
+        </ul>
+      </article>
+
+      <article aria-labelledby="awards-heading" class="card">
+        <h2 id="awards-heading">Awards & Honors</h2>
+        <!-- If none, delete this article -->
+        <ul>
+          <li>Award – Organization (Year)</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> YOUR NAME</p>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
