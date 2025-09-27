@@ -1,4 +1,4 @@
-/* ===== y2k cyber pink theme (no frameworks) ===== */
+/* ===== y2k cyber aqua-pop theme ===== */
 
 /* palette */
 :root {
@@ -7,22 +7,22 @@
   --border: rgba(255,255,255,0.12);
   --text: #f7f7fb;
   --muted: #b7b7c9;
-  --accent: #ff5fd2;         /* neon pink */
-  --accent-2: #7cf7ff;       /* aqua glow */
-  --accent-3: #c29bff;       /* lavender */
+  --accent: #00f0ff;         /* aqua pop */
+  --accent-2: #ff66e8;       /* neon pink */
+  --accent-3: #b07cff;       /* lavender */
   --focus: #ffd166;          /* accessible focus */
   --radius: 18px;
   --max: 1100px;
 }
 
-/* respect system dark/light but keep the vibe */
+/* respect system light mode while keeping vibe */
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #fdf7ff;
-    --panel: rgba(232, 216, 255, 0.45);
-    --border: rgba(137, 88, 255, 0.25);
-    --text: #12121a;
-    --muted: #585872;
+    --bg: #f7fcff;
+    --panel: rgba(210, 240, 255, 0.6);
+    --border: rgba(0, 160, 190, 0.25);
+    --text: #0e1220;
+    --muted: #4b4f66;
   }
 }
 
@@ -33,14 +33,14 @@ body {
   min-height: 100svh;
   color: var(--text);
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(255,95,210,0.20), transparent 60%),
-    radial-gradient(1000px 600px at -10% 90%, rgba(124,247,255,0.16), transparent 60%),
+    radial-gradient(1200px 600px at 80% -10%, rgba(255,102,232,0.20), transparent 60%),
+    radial-gradient(1000px 600px at -10% 90%, rgba(0,240,255,0.16), transparent 60%),
     linear-gradient(180deg, #0a0b10 0%, #0f1120 100%);
   font: 16px/1.6 ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial;
   overflow-x: hidden;
 }
 
-/* subtle scanlines for retro monitor */
+/* subtle scanlines */
 body::after{
   content:"";
   position:fixed; inset:0;
@@ -56,7 +56,7 @@ body::after{
   opacity:.35;
 }
 
-/* star sparkle background (gentle) */
+/* star sparkle background */
 .stars, .stars::before, .stars::after{
   position: fixed; inset: 0; content: ""; pointer-events:none;
   background-image:
@@ -109,8 +109,8 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .nav a[aria-current="page"] {
   border-color: transparent;
   background:
-    radial-gradient(120% 120% at 10% -20%, rgba(255,95,210,.35), transparent 40%),
-    radial-gradient(120% 120% at 110% 120%, rgba(124,247,255,.25), transparent 40%),
+    radial-gradient(120% 120% at 10% -20%, rgba(0,240,255,.35), transparent 40%),
+    radial-gradient(120% 120% at 110% 120%, rgba(255,102,232,.25), transparent 40%),
     linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
 }
 
@@ -118,7 +118,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .grid.two { display: grid; grid-template-columns: 1fr; gap: 1rem; }
 @media (min-width: 760px){ .grid.two { grid-template-columns: 1fr 1fr; } }
 
-/* cards (glassmorphism) */
+/* cards */
 .card{
   background: var(--panel);
   border: 1px solid var(--border);
@@ -133,7 +133,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 /* header branding */
 .site-header .container{ display: flex; align-items: center; gap: 1rem; }
 .headshot{ border-radius: 18px; width: 160px; height: 160px; object-fit: cover;
-  box-shadow: 0 10px 25px rgba(255,95,210,.25), 0 2px 8px rgba(124,247,255,.15);
+  box-shadow: 0 10px 25px rgba(0,240,255,.35), 0 2px 8px rgba(255,102,232,.2);
   border: 1px solid var(--border);
 }
 
@@ -141,7 +141,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .holo-text{
   background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  text-shadow: 0 0 24px rgba(255,95,210,.35);
+  text-shadow: 0 0 24px rgba(0,240,255,.35);
   letter-spacing: .4px;
 }
 
@@ -166,11 +166,11 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
   display:inline-block; padding:.7rem 1.1rem; border-radius:12px;
   color:#0a0b10; font-weight:700; letter-spacing:.2px;
   background:
-    radial-gradient(120% 120% at 20% -10%, #fff 0%, #ffe7fb 30%, #e4fbff 60%, #efe6ff 100%);
+    radial-gradient(120% 120% at 20% -10%, #fff 0%, #e8feff 30%, #ffe6fb 60%, #efe6ff 100%);
   border: 0;
   box-shadow:
-    0 10px 25px rgba(255,95,210,.35),
-    0 2px 8px rgba(124,247,255,.25),
+    0 10px 25px rgba(0,240,255,.35),
+    0 2px 8px rgba(255,102,232,.25),
     inset 0 0 0 1px rgba(255,255,255,.6);
 }
 .button:hover{ filter: brightness(1.05); transform: translateY(-1px); }
@@ -182,8 +182,8 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); display: bloc
 /* job sections */
 .job + .job { margin-top: 1rem; }
 
-/* footnote */
-.site-footer .container { display:flex; justify-content: space-between; align-items:center; gap:1rem; }
+/* footer */
+.site-footer .container { display:flex; justify-content: space-between; align-items:center; gap:1rem; flex-wrap: wrap; }
 
 /* print */
 @media print {
@@ -192,4 +192,3 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); display: bloc
   .card { background: transparent; border: 1px solid #ccc; box-shadow: none; }
   .container { max-width: 100%; }
 }
-
