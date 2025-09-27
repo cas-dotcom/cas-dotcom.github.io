@@ -3,52 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project 1 – Nile Dot Com (Java GUI)</title>
-  <meta name="description" content="Nile Dot Com – Java GUI e‑store simulation with CSV I/O and receipts." />
+  <title>Project – Nile Dot Com (Java GUI)</title>
+  <meta name="description" content="Java Swing e-store simulation with CSV I/O and receipts." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <span class="stars" aria-hidden="true"></span>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="wallpaper"></div>
 
-  <header class="site-header">
-    <div class="container">
-      <h1 class="holo-text">Project: Nile Dot Com – Java GUI</h1>
-    </div>
-    <nav aria-label="Primary" class="nav">
-      <ul class="container">
-        <li><a href="index.html">Resume</a></li>
-        <li><a aria-current="page" href="project1.html">Project 1</a></li>
-        <li><a href="project2.html">Project 2</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="page">
+    <header class="banner window">
+      <div class="titlebar"><span>project</span></div>
+      <div class="banner-inner">
+        <h1 class="logo holo">nile dot com – java gui</h1>
+        <nav class="crumbs">
+          <a href="index.html">home</a> › <span>nile dot com</span>
+        </nav>
+      </div>
+    </header>
 
-  <main id="main" tabindex="-1">
-    <section class="container grid two">
-      <article class="card">
-        <img src="images/project1.jpg" alt="Screenshot or diagram of Nile Dot Com Java GUI" width="1200" height="675" />
-      </article>
+    <main id="main" class="content">
+      <section class="card window">
+        <div class="titlebar"><span>overview</span></div>
+        <div class="card-body two-col">
+          <div>
+            <p>Java Swing application that simulates an e‑commerce storefront with search, cart, and receipt generation. Reads product data from CSV and logs transactions; demonstrates event‑driven UI and file I/O.</p>
+            <h3>skills learned</h3>
+            <ul class="bullets">
+              <li>Java Swing & events</li>
+<li>CSV parsing & file I/O</li>
+<li>State management (cart & totals)</li>
+<li>Error handling & UX</li>
+            </ul>
+            <p><a class="btn" href="#" target="_blank" rel="noopener">add repo link</a></p>
+          </div>
+          <div>
+            <img src="images/project1.jpg" alt="Nile Dot Com GUI screenshot" class="shadowed">
+          </div>
+        </div>
+      </section>
+    </main>
 
-      <article class="card">
-        <h2>Overview</h2>
-        <p>Nile Dot Com is a Java Swing application that simulates an e‑commerce storefront. Users can search inventory, add items to a cart, and generate receipts. The app reads product data from CSV files and writes transactional logs, demonstrating file I/O and event-driven programming.</p>
-        <h2>Skills Learned</h2>
-        <ul>
-          <li>Java Swing GUI and event-driven programming</li>
-          <li>CSV parsing and file I/O</li>
-          <li>State management for cart, items, and totals</li>
-          <li>Usability considerations and error handling</li>
-        </ul>
-        <p>
-          <a class="button" href="#" target="_blank" rel="noopener">View Code (add repo link)</a>
-        </p>
-      </article>
-    </section>
-  </main>
+    <footer class="footer window">
+      <div class="titlebar"><span>© <span id="year"></span> celeste seeley</span></div>
+    </footer>
+  </div>
 
-  <footer class="site-footer">
-    <div class="container"><p><a href="index.html">Back to resume</a></p></div>
-  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
