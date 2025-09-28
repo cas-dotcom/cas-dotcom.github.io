@@ -9,7 +9,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="wallpaper"><button class="btn sfx-toggle" id="sfxToggle" aria-pressed="true">🔊 sfx on</button></div>
+  <div class="wallpaper"><button class="btn sfx-toggle" id="sfxToggle" aria-pressed="true">🔈 sfx off</button></div>
 
   <div class="page">
     <header class="banner window">
@@ -72,13 +72,13 @@ document.addEventListener('mousemove', function(e) {
 (function(){
   const clickSfx = document.getElementById('sfxClick');
   const hoverSfx = document.getElementById('sfxHover');
-  let enabled = true;
+  let enabled = false;
 
   function play(el){
     if(!enabled) return;
     // clone to allow rapid retriggering
     const c = el.cloneNode();
-    c.volume = 0.6;
+    c.volume = 0.15;
     document.body.appendChild(c);
     c.play().catch(()=>{});
     c.addEventListener('ended', ()=> c.remove());
@@ -108,7 +108,7 @@ document.addEventListener('mousemove', function(e) {
     toggle.addEventListener('click', ()=>{
       enabled = !enabled;
       toggle.setAttribute('aria-pressed', String(enabled));
-      toggle.textContent = enabled ? '🔊 sfx on' : '🔈 sfx off';
+      toggle.textContent = enabled ? '🔈 sfx off' : '🔈 sfx off';
     });
   }
 })();
