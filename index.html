@@ -16,7 +16,7 @@
     <div class="player-inner">
       <button class="btn" id="play">play</button>
       <button class="btn" id="pause">pause</button>
-      <audio id="audio" src="intro.wav" preload="auto"></audio>
+      <audio id="audio" preload="auto"><source src="intro.wav" type="audio/wav"></audio><source src="intro.wav" type="audio/wav"></audio>
       <span class="muted tip">replace intro.wav with your MP3 for a real song</span>
     </div>
   <button class="btn sfx-toggle" id="sfxToggle" aria-pressed="true">🔊 sfx on</button></div>
@@ -40,7 +40,7 @@
     </header>
 
     <div class="columns">
-      <aside class="sidebar window frame">
+      <aside class="sidebar window">
         <div class="titlebar"><span>navigation</span></div>
         <nav class="nav">
           <a href="index.html" aria-current="page">home</a>
