@@ -11,7 +11,17 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="wallpaper"></div>
 
-  <div class="page">
+  <div class="player window">
+    <div class="titlebar"><span>♪ now playing</span></div>
+    <div class="player-inner">
+      <button class="btn" id="play">play</button>
+      <button class="btn" id="pause">pause</button>
+      <audio id="audio" src="intro.wav" preload="auto"></audio>
+      <span class="muted tip">replace intro.wav with your MP3 for a real song</span>
+    </div>
+  <button class="btn sfx-toggle" id="sfxToggle" aria-pressed="true">🔊 sfx on</button></div>
+
+  <div class="page y2k-stickers">
     <header class="banner window">
       <div class="titlebar"><span>★ welcome to celeste.exe ★</span></div>
       <div class="banner-inner">
@@ -30,7 +40,7 @@
     </header>
 
     <div class="columns">
-      <aside class="sidebar window">
+      <aside class="sidebar window frame">
         <div class="titlebar"><span>navigation</span></div>
         <nav class="nav">
           <a href="index.html" aria-current="page">home</a>
@@ -124,6 +134,72 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const audio = document.getElementById('audio');
+    document.getElementById('play').addEventListener('click', () => audio.play());
+    document.getElementById('pause').addEventListener('click', () => audio.pause());
   </script>
+
+<script>
+document.addEventListener('mousemove', function(e) {
+  let sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.style.left = (e.pageX - 4) + 'px';
+  sparkle.style.top = (e.pageY - 4) + 'px';
+  document.body.appendChild(sparkle);
+  setTimeout(() => sparkle.remove(), 1000);
+});
+</script>
+
+
+  <audio id="sfxClick" src="sounds/click.wav" preload="auto"></audio>
+  <audio id="sfxHover" src="sounds/hover.wav" preload="auto"></audio>
+
+
+<script>
+(function(){
+  const clickSfx = document.getElementById('sfxClick');
+  const hoverSfx = document.getElementById('sfxHover');
+  let enabled = true;
+
+  function play(el){
+    if(!enabled) return;
+    // clone to allow rapid retriggering
+    const c = el.cloneNode();
+    c.volume = 0.6;
+    document.body.appendChild(c);
+    c.play().catch(()=>{});
+    c.addEventListener('ended', ()=> c.remove());
+  }
+
+  // click on links & buttons
+  document.addEventListener('click', (e)=>{
+    const t = e.target.closest('a, button');
+    if(t){ play(clickSfx); }
+  }, true);
+
+  // hover focus for links & buttons
+  document.addEventListener('mouseover', (e)=>{
+    const t = e.target.closest('a, button');
+    if(t){ play(hoverSfx); }
+  }, true);
+
+  // keyboard focus also gets hover sound (accessibility)
+  document.addEventListener('focusin', (e)=>{
+    const t = e.target.closest('a, button');
+    if(t){ play(hoverSfx); }
+  });
+
+  // toggle button
+  const toggle = document.getElementById('sfxToggle');
+  if(toggle){
+    toggle.addEventListener('click', ()=>{
+      enabled = !enabled;
+      toggle.setAttribute('aria-pressed', String(enabled));
+      toggle.textContent = enabled ? '🔊 sfx on' : '🔈 sfx off';
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

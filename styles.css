@@ -1,4 +1,4 @@
-/* ===== y2k girly + cyber theme ===== */
+/* ===== y2k girly + cyber & stickers edition ===== */
 :root{
   --bg: #0b0a13;
   --panel: #ffe7ff20;
@@ -7,26 +7,29 @@
   --muted: #d6c6e6;
   --pink: #ff66e8;
   --aqua: #00f0ff;
-  --lime: #baff6e;
   --shadow: rgba(0,0,0,.35);
   --radius: 14px;
   --max: 1100px;
 }
 
-/* wallpaper: tiled dots + gradient vignette */
+/* wallpaper using user's stars image */
 .wallpaper{
-  position: fixed; inset: 0; z-index: -2;
+  position: fixed; inset: 0; z-index: -3;
   background:
-    radial-gradient(1200px 600px at 90% -10%, rgba(0,240,255,.25), transparent 60%),
-    radial-gradient(1000px 600px at -10% 100%, rgba(255,102,232,.2), transparent 60%),
-    #0b0a13;
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url('images/bg-pink-stars.jpg') center/cover no-repeat;
+  filter: saturate(120%);
 }
-.wallpaper::after{
-  content:""; position: absolute; inset:0; z-index:-1;
-  background: url('images/bg_tile.png');
-  opacity:.35;
-  mix-blend-mode: screen;
+
+/* stickers layer (non-interactive) */
+.y2k-stickers::before,
+.y2k-stickers::after{
+  content:""; position: fixed; z-index:-1; pointer-events:none;
+  width:240px; height:240px; background-size: contain; background-repeat:no-repeat;
+  opacity:.9; filter: drop-shadow(0 8px 16px rgba(255,102,232,.35));
 }
+.y2k-stickers::before{ left:-20px; top:120px; background-image: url('images/stickers-tech.png'); }
+.y2k-stickers::after{ right:-10px; bottom:60px; background-image: url('images/stickers-pink-stars.png'); }
 
 html,body{margin:0;padding:0}
 body{color:var(--ink);font:16px/1.6 system-ui, Segoe UI, Roboto, Helvetica, Arial;}
@@ -34,9 +37,15 @@ body{color:var(--ink);font:16px/1.6 system-ui, Segoe UI, Roboto, Helvetica, Aria
 .skip-link{position:absolute;left:-9999px}
 .skip-link:focus{position:fixed;left:16px;top:16px;background:#ffd166;color:#000;padding:.5rem .75rem;border-radius:10px;z-index:9999}
 
+/* music player */
+.player{max-width:var(--max); margin: 10px auto; }
+.player-inner{display:flex; align-items:center; gap:.5rem; padding:10px}
+.tip{font-size:.85rem}
+#play,#pause{cursor:pointer}
+
 /* layout */
-.page{max-width:var(--max); margin: 24px auto; padding:0 12px}
-.columns{display:grid; grid-template-columns: 280px 1fr; gap:16px}
+.page{max-width:var(--max); margin: 10px auto 24px; padding:0 12px}
+.columns{display:grid; grid-template-columns: 300px 1fr; gap:16px}
 @media (max-width: 900px){ .columns{ grid-template-columns:1fr } }
 
 /* window look */
@@ -45,7 +54,9 @@ body{color:var(--ink);font:16px/1.6 system-ui, Segoe UI, Roboto, Helvetica, Aria
   background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
   font-weight:700; letter-spacing:.3px; text-transform: lowercase; color:#fff;
 }
-.titlebar::before{content:""; width:12px; height:12px; background:url('images/heart.png') no-repeat center/contain; filter: drop-shadow(0 0 6px rgba(255,102,232,.6)); }
+
+/* sidebar frame using user's 'window-frame' */
+.frame{background: var(--panel) url('images/window-frame.jpg') center/cover no-repeat;}
 
 /* banner */
 .banner .banner-inner{display:flex; align-items:center; gap:16px; padding:14px}
@@ -98,12 +109,43 @@ body{color:var(--ink);font:16px/1.6 system-ui, Segoe UI, Roboto, Helvetica, Aria
 /* footer */
 .footer .titlebar{justify-content:center}
 
-/* images */
-img{max-width:100%; display:block}
-
 /* print */
 @media print{
-  .wallpaper, .sidebar, .marquee, .btn, .links, .projects, .footer{display:none !important}
+  .wallpaper, .sidebar, .marquee, .btn, .links, .projects, .footer, .player{display:none !important}
   body{background:#fff;color:#000}
   .window{background:#fff;border:0;box-shadow:none}
+}
+
+
+/* pink cursor styling */
+body {
+  cursor: url('images/pink-cursor.png'), auto;
+}
+a:hover, button:hover {
+  cursor: url('images/pink-cursor.png'), pointer;
+}
+
+
+/* sparkle trail */
+.sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: pink;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: sparkle-fade 1s forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkle-fade {
+  to { transform: translateY(-10px); opacity: 0; }
+}
+
+
+/* sfx toggle positioning */
+.sfx-toggle{
+  position: sticky; top: 8px; margin: 8px auto; display: block;
+  z-index: 10;
 }
