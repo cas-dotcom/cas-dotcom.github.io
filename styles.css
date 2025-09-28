@@ -163,40 +163,57 @@ a:hover, button:hover {
 }
 
 
-/* remove old frame background on sidebar */
-.frame{ background: none !important; }
-
-/* glittery holographic title */
+/* ===== white glitter text for logo + headers ===== */
+.logo{
+  position:relative;
+}
 .logo.holo{
-  background: linear-gradient(90deg, #c7f5ff, #ffbdf4, #d6ccff, #c7f5ff);
-  background-size: 300% 100%;
+  background-image: linear-gradient(90deg, #ffffff, #f1e9ff, #ffffff, #ffeafd, #ffffff);
+  background-size: 400% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  text-shadow:
-    0 0 22px rgba(0,240,255,.35),
-    0 0 10px rgba(255,102,232,.25),
-    0 1px 0 rgba(255,255,255,.6);
-  animation: holo-sheen 6s linear infinite;
-  position: relative;
+  text-shadow: 0 0 28px rgba(255,255,255,.35), 0 0 10px rgba(255,255,255,.2);
+  animation: glitterSheen 5.5s linear infinite;
 }
 .logo.holo::after{
-  /* fine glitter overlay */
   content:""; position:absolute; inset:0; pointer-events:none;
   background:
-    radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.9), transparent 60%),
-    radial-gradient(2px 2px at 30% 60%, rgba(255,255,255,.8), transparent 60%),
-    radial-gradient(2px 2px at 55% 35%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(2px 2px at 15% 40%, rgba(255,255,255,.95), transparent 60%),
+    radial-gradient(2px 2px at 35% 60%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(2px 2px at 55% 30%, rgba(255,255,255,.9), transparent 60%),
     radial-gradient(2px 2px at 75% 70%, rgba(255,255,255,.9), transparent 60%),
-    radial-gradient(2px 2px at 90% 40%, rgba(255,255,255,.8), transparent 60%);
-  background-size: 200% 100%;
+    radial-gradient(2px 2px at 90% 40%, rgba(255,255,255,.85), transparent 60%);
+  background-size:200% 100%;
   mix-blend-mode: screen;
-  animation: glitter-shift 4s linear infinite;
+  animation: glitterDrift 4.5s linear infinite;
 }
-@keyframes holo-sheen {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+
+/* Section titlebars */
+.titlebar span{
+  position:relative;
+  display:inline-block;
+  background-image: linear-gradient(90deg, #ffffff, #f5f5f5, #ffffff, #ededed, #ffffff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 0 14px rgba(255,255,255,.25);
+  animation: glitterSheen 6s linear infinite;
 }
-@keyframes glitter-shift {
-  0% { background-position: 0% 50%; opacity:.9; }
-  50% { opacity:.7; }
-  100% { background-position: 200% 50%; opacity:.9; }
+.titlebar span::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(1.6px 1.6px at 20% 60%, rgba(255,255,255,.95), transparent 60%),
+    radial-gradient(1.6px 1.6px at 60% 40%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(1.6px 1.6px at 80% 70%, rgba(255,255,255,.85), transparent 60%);
+  background-size:160% 100%;
+  mix-blend-mode: screen;
+  animation: glitterDrift 3.5s linear infinite reverse;
+}
+
+@keyframes glitterSheen{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 300% 50%; }
+}
+@keyframes glitterDrift{
+  0%{ background-position: 0% 50%; opacity:.9 }
+  50%{ opacity:.7 }
+  100%{ background-position: 160% 50%; opacity:.9 }
 }
