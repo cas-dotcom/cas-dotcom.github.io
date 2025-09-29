@@ -272,3 +272,15 @@ body { color: #111 !important; }
 h1, h2, h3, h4, h5, h6 { color: #111 !important; }
 a { color: #111; text-decoration: underline; }
 /* === end readability === */
+
+
+/* Social link styling */
+.social-label {
+  font-weight: bold;
+  color: #222;
+  margin-right: 4px;
+}
+.social-username {
+  color: #444;
+  font-family: monospace;
+}
