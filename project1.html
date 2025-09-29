@@ -3,116 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project – Nile Dot Com (Java GUI)</title>
-  <meta name="description" content="Java Swing e-store simulation with CSV I/O and receipts." />
+  <title>Project: DNS & Email MX Lookup Lab</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  
-  <div class="wallpaper"><button class="btn sfx-toggle" id="sfxToggle" aria-pressed="true">🔈 sfx off</button></div>
+  <header>
+    <nav aria-label="breadcrumb">
+      <a href="index.html">← Back to resume</a>
+    </nav>
+    <h1>CNT 4714 Networking Lab: DNS &amp; Email MX Lookup</h1>
+    <p class="subtitle">Terminal-based investigation using <code>dig</code> on Ubuntu to analyze UCF mail records</p>
+  </header>
 
-  <div class="page">
-    <header class="banner window">
-      <div class="titlebar"><span>project</span></div>
-      <div class="banner-inner">
-        <h1 class="logo holo">nile dot com – java gui</h1>
-        <nav class="crumbs">
-          <a href="index.html">home</a> › <span>nile dot com</span>
-        </nav>
-      </div>
-    </header>
+  <main id="main" role="main">
+    <article>
+      <figure>
+        <img src="assets/images/project-dns-cli.png" alt="Terminal output showing dig MX queries for ucfsmtp.mail.ucf.edu with A records and authoritative sections." style="max-width:100%;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.25);" loading="lazy">
+        <figcaption>Querying MX and A records; validating answers and name servers.</figcaption>
+      </figure>
 
-    <main id="main" class="content">
-      <section class="card window">
-        <div class="titlebar"><span>overview</span></div>
-        <div class="card-body two-col">
-          <div>
-            <p>Java Swing application that simulates an e‑commerce storefront with search, cart, and receipt generation. Reads product data from CSV and logs transactions; demonstrates event‑driven UI and file I/O.</p>
-            <h3>skills learned</h3>
-            <ul class="bullets">
-              <li>Java Swing & events</li>
-              <li>CSV parsing & file I/O</li>
-              <li>State management (cart & totals)</li>
-              <li>Error handling & UX</li>
-            </ul>
-            <p><a class="btn" href="#" target="_blank" rel="noopener">add repo link</a></p>
-          </div>
-          <div>
-            <img src="images/project1.jpg" alt="Nile Dot Com GUI screenshot" class="shadowed">
-          </div>
-        </div>
+      <section aria-labelledby="overview">
+        <h2 id="overview">Overview</h2>
+        <p>
+          For this networking lab I captured and analyzed DNS traffic while resolving mail
+          records for UCF. Using <code>dig</code>, I retrieved the <strong>MX</strong> record set and
+          correlated <strong>A</strong> records for the mail exchangers. I verified response codes,
+          authorities, and additional sections to confirm correct routing to
+          <code>ucfsmtp.mail.ucf.edu</code>.
+        </p>
       </section>
-        <hr class="glitter" aria-hidden="true">
-    </main>
 
-    <footer class="footer window">
-      <div class="titlebar"><span>© <span id="year"></span> celeste seeley</span></div>
-    </footer>
-  </div>
+      <section aria-labelledby="outcomes">
+        <h2 id="outcomes">What I built / validated</h2>
+        <ul>
+          <li>Issued <code>dig MX</code> and <code>dig A</code> lookups against university mail hosts</li>
+          <li>Interpreted <em>ANSWER</em>, <em>AUTHORITY</em>, and <em>ADDITIONAL</em> sections</li>
+          <li>Checked TTLs, response sizes, and name server behavior</li>
+          <li>Documented findings with screenshots and concise notes</li>
+        </ul>
+      </section>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+      <section aria-labelledby="skills">
+        <h2 id="skills">Skills &amp; Outcomes (per rubric)</h2>
+        <ul>
+          <li>DNS fundamentals (A, MX, NS; recursion vs. iteration)</li>
+          <li>Linux CLI tooling: <code>dig</code>, terminal navigation</li>
+          <li>Troubleshooting email delivery paths at the DNS layer</li>
+          <li>Clear documentation with reproducible commands</li>
+        </ul>
+      </section>
+    </article>
+  </main>
 
-<script>
-document.addEventListener('mousemove', function(e) {
-  let sparkle = document.createElement('div');
-  sparkle.className = 'sparkle';
-  sparkle.style.left = (e.pageX - 4) + 'px';
-  sparkle.style.top = (e.pageY - 4) + 'px';
-  document.body.appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 1000);
-});
-</script>
-
-
-  <audio id="sfxClick" src="sounds/click.wav" preload="auto"></audio>
-  <audio id="sfxHover" src="sounds/hover.wav" preload="auto"></audio>
-
-
-<script>
-(function(){
-  const clickSfx = document.getElementById('sfxClick');
-  const hoverSfx = document.getElementById('sfxHover');
-  let enabled = false;
-
-  function play(el){
-    if(!enabled) return;
-    // clone to allow rapid retriggering
-    const c = el.cloneNode();
-    c.volume = 0.15;
-    document.body.appendChild(c);
-    c.play().catch(()=>{});
-    c.addEventListener('ended', ()=> c.remove());
-  }
-
-  // click on links & buttons
-  document.addEventListener('click', (e)=>{
-    const t = e.target.closest('a, button');
-    if(t){ play(clickSfx); }
-  }, true);
-
-  // hover focus for links & buttons
-  document.addEventListener('mouseover', (e)=>{
-    const t = e.target.closest('a, button');
-    if(t){ play(hoverSfx); }
-  }, true);
-
-  // keyboard focus also gets hover sound (accessibility)
-  document.addEventListener('focusin', (e)=>{
-    const t = e.target.closest('a, button');
-    if(t){ play(hoverSfx); }
-  });
-
-  // toggle button
-  const toggle = document.getElementById('sfxToggle');
-  if(toggle){
-    toggle.addEventListener('click', ()=>{
-      enabled = !enabled;
-      toggle.setAttribute('aria-pressed', String(enabled));
-      toggle.textContent = enabled ? '🔈 sfx off' : '🔈 sfx off';
-    });
-  }
-})();
-</script>
-
+  <footer>
+    <p>© 2025 Celeste Seeley</p>
+  </footer>
 </body>
 </html>

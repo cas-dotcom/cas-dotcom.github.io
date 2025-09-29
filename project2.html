@@ -3,116 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project – Wireshark HTTP/TLS Analysis</title>
-  <meta name="description" content="Packet capture, filtering, and analysis of HTTP/TLS traffic." />
+  <title>Project: AWS Auto Scaling Web App</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  
-  <div class="wallpaper"><button class="btn sfx-toggle" id="sfxToggle" aria-pressed="true">🔈 sfx off</button></div>
+  <header>
+    <nav aria-label="breadcrumb">
+      <a href="index.html">← Back to resume</a>
+    </nav>
+    <h1>CNT 4603 SysAdmin Project: AWS Auto Scaling Web App</h1>
+    <p class="subtitle">Highly available EC2 fleet with a Launch Template and Auto Scaling Group</p>
+  </header>
 
-  <div class="page">
-    <header class="banner window">
-      <div class="titlebar"><span>project</span></div>
-      <div class="banner-inner">
-        <h1 class="logo holo">wireshark http/tls analysis</h1>
-        <nav class="crumbs">
-          <a href="index.html">home</a> › <span>wireshark analysis</span>
-        </nav>
-      </div>
-    </header>
+  <main id="main" role="main">
+    <article>
+      <figure>
+        <img src="assets/images/project-aws-autoscaling.png" alt="AWS console screenshot showing EC2 Auto Scaling group activity growing the capacity to two instances." style="max-width:100%;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.25);" loading="lazy">
+        <figcaption>Auto Scaling activity: provisioning instances from a Launch Template.</figcaption>
+      </figure>
 
-    <main id="main" class="content">
-      <section class="card window">
-        <div class="titlebar"><span>overview</span></div>
-        <div class="card-body two-col">
-          <div>
-            <p>Captured and analyzed live web traffic; applied HTTP/TLS filters, identified hostnames (SNI), GET requests, response codes, object sizes, and timing; wrote findings with screenshots.</p>
-            <h3>skills learned</h3>
-            <ul class="bullets">
-              <li>Capture workflow & filters</li>
-              <li>HTTP & TLS protocol analysis</li>
-              <li>Interpreting SNI and headers</li>
-              <li>Technical reporting</li>
-            </ul>
-            <p><a class="btn" href="#" target="_blank" rel="noopener">add report link</a></p>
-          </div>
-          <div>
-            <img src="images/project2.jpg" alt="Wireshark analysis screenshot" class="shadowed">
-          </div>
-        </div>
+      <section aria-labelledby="overview">
+        <h2 id="overview">Overview</h2>
+        <p>
+          I deployed a web tier using an <strong>EC2 Launch Template</strong> and an
+          <strong>Auto Scaling Group</strong> in <em>us‑east‑1</em>. The group maintained capacity
+          by launching instances across subnets and scaling to meet policy targets.
+          Health checks ensured only healthy instances served traffic.
+        </p>
       </section>
-        <hr class="glitter" aria-hidden="true">
-    </main>
 
-    <footer class="footer window">
-      <div class="titlebar"><span>© <span id="year"></span> celeste seeley</span></div>
-    </footer>
-  </div>
+      <section aria-labelledby="architecture">
+        <h2 id="architecture">Architecture highlights</h2>
+        <ul>
+          <li>EC2 Launch Template for immutable configuration (AMI, instance type, SGs)</li>
+          <li>Auto Scaling Group with min/desired/max capacity and activity history</li>
+          <li>Target group integration for load-balanced HTTP service (lab setup)</li>
+          <li>Tags and IAM roles for easier operations and logging</li>
+        </ul>
+      </section>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+      <section aria-labelledby="skills">
+        <h2 id="skills">Skills &amp; Outcomes (per rubric)</h2>
+        <ul>
+          <li>AWS EC2, Launch Templates, and Auto Scaling Groups</li>
+          <li>Target groups / health checks basics</li>
+          <li>VPC networking, subnets, and security group rules</li>
+          <li>Operational hygiene: tagging, IAM roles, and activity audits</li>
+        </ul>
+      </section>
+    </article>
+  </main>
 
-<script>
-document.addEventListener('mousemove', function(e) {
-  let sparkle = document.createElement('div');
-  sparkle.className = 'sparkle';
-  sparkle.style.left = (e.pageX - 4) + 'px';
-  sparkle.style.top = (e.pageY - 4) + 'px';
-  document.body.appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 1000);
-});
-</script>
-
-
-  <audio id="sfxClick" src="sounds/click.wav" preload="auto"></audio>
-  <audio id="sfxHover" src="sounds/hover.wav" preload="auto"></audio>
-
-
-<script>
-(function(){
-  const clickSfx = document.getElementById('sfxClick');
-  const hoverSfx = document.getElementById('sfxHover');
-  let enabled = false;
-
-  function play(el){
-    if(!enabled) return;
-    // clone to allow rapid retriggering
-    const c = el.cloneNode();
-    c.volume = 0.15;
-    document.body.appendChild(c);
-    c.play().catch(()=>{});
-    c.addEventListener('ended', ()=> c.remove());
-  }
-
-  // click on links & buttons
-  document.addEventListener('click', (e)=>{
-    const t = e.target.closest('a, button');
-    if(t){ play(clickSfx); }
-  }, true);
-
-  // hover focus for links & buttons
-  document.addEventListener('mouseover', (e)=>{
-    const t = e.target.closest('a, button');
-    if(t){ play(hoverSfx); }
-  }, true);
-
-  // keyboard focus also gets hover sound (accessibility)
-  document.addEventListener('focusin', (e)=>{
-    const t = e.target.closest('a, button');
-    if(t){ play(hoverSfx); }
-  });
-
-  // toggle button
-  const toggle = document.getElementById('sfxToggle');
-  if(toggle){
-    toggle.addEventListener('click', ()=>{
-      enabled = !enabled;
-      toggle.setAttribute('aria-pressed', String(enabled));
-      toggle.textContent = enabled ? '🔈 sfx off' : '🔈 sfx off';
-    });
-  }
-})();
-</script>
-
+  <footer>
+    <p>© 2025 Celeste Seeley</p>
+  </footer>
 </body>
 </html>
