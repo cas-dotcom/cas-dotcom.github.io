@@ -224,3 +224,32 @@ a:hover, button:hover {
 .page{ max-width: var(--max); margin: 10px auto 24px; padding: 0 12px; }
 .columns{ display: grid; grid-template-columns: 300px 1fr; gap: 16px; }
 @media (max-width: 900px){ .columns{ grid-template-columns: 1fr; } }
+
+
+/* === injected by helper: background image setup === */
+:root {
+  --bg-overlay: rgba(255, 255, 255, 0.80); /* raises readability */
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-image: url("assets/images/resume-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* optional overlay to soften busy background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  pointer-events: none;
+  z-index: -1;
+}
+/* === end injected block === */
