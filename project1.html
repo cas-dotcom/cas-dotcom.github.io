@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CNT 4714 Networking Lab: DNS & Email MX Lookup</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav aria-label="breadcrumb"><a href="index.html">← Back to resume</a></nav>
+    <h1>CNT 4714 Networking Lab: DNS &amp; Email MX Lookup</h1>
+    <p class="subtitle">Terminal-based investigation using <code>dig</code> on Ubuntu to analyze UCF mail records</p>
+  </header>
+  <main id="main" role="main">
+    <article>
+      <figure>
+        <img src="assets/images/project-dns-cli.png" alt="Terminal screenshot showing dig lookups for UCF DNS records." style="max-width:100%;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.25);" loading="lazy">
+        <figcaption>Querying MX and A records; validating answers and name servers.</figcaption>
+      </figure>
+      <section aria-labelledby="overview"><h2 id="overview">Overview</h2>
+        <p>I performed <code>dig MX</code> and <code>dig A</code> lookups for university mail hosts and verified response details in the ANSWER, AUTHORITY, and ADDITIONAL sections, confirming routes to <code>ucfsmtp.mail.ucf.edu</code>.</p>
+      </section>
+      <section aria-labelledby="skills"><h2 id="skills">Skills &amp; Outcomes (per rubric)</h2>
+        <ul>
+          <li>DNS fundamentals: A, MX, NS; TTLs and RCODEs</li>
+          <li>Linux CLI with <code>dig</code> and terminal navigation</li>
+          <li>Troubleshooting mail delivery path at DNS layer</li>
+          <li>Structured documentation with reproducible steps</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <footer><p>© 2025 Celeste Seeley</p></footer>
+</body>
+</html>

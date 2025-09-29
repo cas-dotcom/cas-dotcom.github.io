@@ -1,0 +1,274 @@
+/* ===== y2k girly + cyber & stickers edition ===== */
+:root{
+  --bg: #0b0a13;
+  --panel: #ffe7ff20;
+  --border: #ffc8ff66;
+  --ink: #fdf7ff;
+  --muted: #d6c6e6;
+  --pink: #ff66e8;
+  --aqua: #00f0ff;
+  --shadow: rgba(0,0,0,.35);
+  --radius: 14px;
+  --max: 1100px;
+}
+
+/* wallpaper using user's stars image */
+.wallpaper{
+  position: fixed; inset: 0; z-index: -3;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url('images/bg-pink-stars.jpg') center/cover no-repeat;
+  filter: saturate(120%);
+}
+
+
+
+/* window look */
+.window{background: var(--panel); border:1px solid var(--border); border-radius: 10px; box-shadow: 0 12px 30px var(--shadow), inset 0 0 0 1px rgba(255,255,255,.05); backdrop-filter: blur(6px) saturate(120%);}
+.titlebar{display:flex; align-items:center; gap:8px; padding:6px 10px; border-bottom:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+  font-weight:700; letter-spacing:.3px; text-transform: lowercase; color:#fff;
+}
+
+/* sidebar frame using user's 'window-frame' */
+.frame{background: var(--panel) url('images/window-frame.jpg') center/cover no-repeat;}
+
+/* banner */
+.banner .banner-inner{display:flex; align-items:center; gap:16px; padding:14px}
+.logo{margin:0; font-size: clamp(28px, 5vw, 44px);}
+.holo{
+  background: conic-gradient(from 180deg at 50% 50%, var(--aqua), var(--pink), #c29bff, var(--aqua));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 0 24px rgba(0,240,255,.35);
+}
+.avatar{width:96px;height:96px;object-fit:cover;border-radius: 14px; border:1px solid var(--border); box-shadow: 0 8px 24px var(--shadow)}
+.tagline{margin:.25rem 0; color:var(--muted); font-size:.95rem}
+.marquee{display:block; padding:6px 10px; color:#061728; background: linear-gradient(90deg, #e8feff, #ffe6fb); border-top:1px solid #ffffff55; border-bottom:1px solid #ffffff55}
+
+/* sidebar */
+.sidebar{padding:0}
+.nav{display:flex; flex-direction:column; padding:8px}
+.nav a{display:block; padding:.55rem .7rem; margin:.2rem 0; border:1px solid var(--border); border-radius:8px; color:var(--ink); text-decoration:none;
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.03));}
+.nav a[aria-current="page"]{outline:2px solid var(--aqua); box-shadow: 0 0 12px rgba(0,240,255,.35)}
+.widget{margin:12px;}
+
+.links{list-style:none;margin:8px 0 12px 16px; padding:0}
+.links a{color:var(--aqua)}
+
+/* content area */
+.content{display:flex; flex-direction:column; gap:16px}
+.card .card-body{padding:12px 14px}
+.card .two-col{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+@media (max-width: 700px){ .card .two-col{ grid-template-columns:1fr } }
+
+.bullets{padding-left:18px}
+.bullets li{margin:.3rem 0}
+.muted{color:var(--muted)}
+
+.chips{display:flex; flex-wrap:wrap; gap:.5rem; align-items:center}
+.chip{display:inline-block; padding:.35rem .6rem; border-radius:999px; border:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.03)); font-weight:700}
+.chips .sub{flex-basis:100%; margin-top:.5rem; color:var(--muted)}
+
+.projects{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+.project img{width:100%; height:auto; border-radius: 0 0 10px 10px}
+.project.mini .titlebar{border-radius: 10px 10px 0 0}
+.shadowed{box-shadow: 0 10px 24px var(--shadow); border-radius: 10px}
+
+/* buttons */
+.btn{display:inline-block; padding:.55rem .9rem; border-radius:10px; background: radial-gradient(120% 120% at 20% -10%, #fff 0%, #e8feff 30%, #ffe6fb 60%, #efe6ff 100%);
+  color:#061728; font-weight:800; text-decoration:none; border:0; margin-right:.4rem; box-shadow:0 8px 22px rgba(0,240,255,.25), inset 0 0 0 1px rgba(255,255,255,.6)}
+.btn:hover{filter:brightness(1.05); transform: translateY(-1px)}
+
+/* footer */
+.footer .titlebar{justify-content:center}
+
+/* print */
+@media print{
+  .wallpaper, .sidebar, .marquee, .btn, .links, .projects, .footer, .player{display:none !important}
+  body{background:#fff;color:#000}
+  .window{background:#fff;border:0;box-shadow:none}
+}
+
+
+/* pink cursor styling */
+body {
+  cursor: url('images/pink-cursor.png'), auto;
+}
+a:hover, button:hover {
+  cursor: url('images/pink-cursor.png'), pointer;
+}
+
+
+/* sparkle trail */
+.sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: pink;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: sparkle-fade 1s forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkle-fade {
+  to { transform: translateY(-10px); opacity: 0; }
+}
+
+
+/* sfx toggle positioning */
+.sfx-toggle{
+  position: sticky; top: 8px; margin: 8px auto; display: block;
+  z-index: 10;
+}
+
+
+/* ===== animated glitter divider ===== */
+.glitter{
+  border: 0;
+  height: 10px;
+  margin: 12px 0 6px;
+  border-radius: 999px;
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.7), rgba(255,255,255,.2), rgba(255,255,255,.7)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.35) 0 6px, rgba(255,255,255,.15) 6px 12px);
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(255,102,232,.25), inset 0 0 0 1px rgba(255,255,255,.35);
+}
+.glitter::before, .glitter::after{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(6px 6px at 10% 50%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(6px 6px at 30% 40%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(6px 6px at 50% 60%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(6px 6px at 70% 45%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(6px 6px at 90% 55%, rgba(255,255,255,.85), transparent 60%);
+  background-size: 200% 100%;
+  mix-blend-mode: screen;
+  animation: glitter-move 3.5s linear infinite;
+}
+.glitter::after{
+  filter: hue-rotate(300deg) saturate(160%);
+  opacity:.8;
+  animation-direction: reverse;
+}
+
+@keyframes glitter-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+
+/* ===== white glitter text for logo + headers ===== */
+.logo{
+  position:relative;
+}
+.logo.holo{
+  background-image: linear-gradient(90deg, #ffffff, #f1e9ff, #ffffff, #ffeafd, #ffffff);
+  background-size: 400% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 0 28px rgba(255,255,255,.35), 0 0 10px rgba(255,255,255,.2);
+  animation: glitterSheen 5.5s linear infinite;
+}
+.logo.holo::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(2px 2px at 15% 40%, rgba(255,255,255,.95), transparent 60%),
+    radial-gradient(2px 2px at 35% 60%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(2px 2px at 55% 30%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(2px 2px at 75% 70%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(2px 2px at 90% 40%, rgba(255,255,255,.85), transparent 60%);
+  background-size:200% 100%;
+  mix-blend-mode: screen;
+  animation: glitterDrift 4.5s linear infinite;
+}
+
+/* Section titlebars */
+.titlebar span{
+  position:relative;
+  display:inline-block;
+  background-image: linear-gradient(90deg, #ffffff, #f5f5f5, #ffffff, #ededed, #ffffff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 0 14px rgba(255,255,255,.25);
+  animation: glitterSheen 6s linear infinite;
+}
+.titlebar span::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(1.6px 1.6px at 20% 60%, rgba(255,255,255,.95), transparent 60%),
+    radial-gradient(1.6px 1.6px at 60% 40%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(1.6px 1.6px at 80% 70%, rgba(255,255,255,.85), transparent 60%);
+  background-size:160% 100%;
+  mix-blend-mode: screen;
+  animation: glitterDrift 3.5s linear infinite reverse;
+}
+
+@keyframes glitterSheen{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 300% 50%; }
+}
+@keyframes glitterDrift{
+  0%{ background-position: 0% 50%; opacity:.9 }
+  50%{ opacity:.7 }
+  100%{ background-position: 160% 50%; opacity:.9 }
+}
+
+
+/* layout restore: keep site width comfortable on desktop */
+:root{ --max: 1100px; }
+.page{ max-width: var(--max); margin: 10px auto 24px; padding: 0 12px; }
+.columns{ display: grid; grid-template-columns: 300px 1fr; gap: 16px; }
+@media (max-width: 900px){ .columns{ grid-template-columns: 1fr; } }
+
+
+/* === injected by helper: background image setup === */
+:root {
+  --bg-overlay: rgba(255, 255, 255, 0.80); /* raises readability */
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-image: url("assets/images/bg-glitter-verified.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* optional overlay to soften busy background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  pointer-events: none;
+  z-index: -1;
+}
+/* === end injected block === */
+
+
+
+/* === readability overrides === */
+body { color: #111 !important; }
+h1, h2, h3, h4, h5, h6 { color: #111 !important; }
+p, li, a, span, div { color: inherit; }
+a { text-decoration: underline; }
+:root { --bg-overlay: rgba(255,255,255,0.90); }
+/* === end readability overrides === */
+
+
+
+/* === readability + background (enforced) === */
+:root { --bg-overlay: rgba(255,255,255,0.90); }
+body { color: #111 !important; }
+h1, h2, h3, h4, h5, h6 { color: #111 !important; }
+a { color: #111; text-decoration: underline; }
+/* === end readability === */
