@@ -236,7 +236,7 @@ html, body {
 }
 
 body {
-  background-image: url("assets/images/celeste-upload-bg.jpg");
+  background-image: url("assets/images/bg-glitter.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -263,3 +263,12 @@ p, li, a, span, div { color: inherit; }
 a { text-decoration: underline; }
 :root { --bg-overlay: rgba(255,255,255,0.90); }
 /* === end readability overrides === */
+
+
+
+/* === readability + background (enforced) === */
+:root { --bg-overlay: rgba(255,255,255,0.90); }
+body { color: #111 !important; }
+h1, h2, h3, h4, h5, h6 { color: #111 !important; }
+a { color: #111; text-decoration: underline; }
+/* === end readability === */

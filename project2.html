@@ -3,59 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project: AWS Auto Scaling Web App</title>
+  <title>CNT 4603 SysAdmin Project: AWS Auto Scaling Web App</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <nav aria-label="breadcrumb">
-      <a href="index.html">← Back to resume</a>
-    </nav>
-    <h1>AWS Auto Scaling Web Server Application</h1>
-    <p class="subtitle">Highly available EC2 fleet with a Launch Template and Auto Scaling Group</p>
+    <nav aria-label="breadcrumb"><a href="index.html">← Back to resume</a></nav>
+    <h1>CNT 4603 SysAdmin Project: AWS Auto Scaling Web App</h1>
+    <p class="subtitle">EC2 Launch Template + Auto Scaling Group for a highly available web tier</p>
   </header>
-
   <main id="main" role="main">
     <article>
       <figure>
-        <img src="assets/images/project-aws-autoscaling.png" alt="AWS console screenshot showing EC2 Auto Scaling group activity growing the capacity to two instances." style="max-width:100%;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.25);" loading="lazy">
-        <figcaption>Auto Scaling activity: provisioning instances from a Launch Template.</figcaption>
+        <img src="assets/images/project-aws-autoscaling.png" alt="AWS EC2 Auto Scaling console screenshot showing capacity increased to two instances." style="max-width:100%;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.25);" loading="lazy">
+        <figcaption>Auto Scaling activity provisioning instances from a Launch Template.</figcaption>
       </figure>
-
-      <section aria-labelledby="overview">
-        <h2 id="overview">Overview</h2>
-        <p>
-          I deployed a web tier using an <strong>EC2 Launch Template</strong> and an
-          <strong>Auto Scaling Group</strong> in <em>us‑east‑1</em>. The group maintained capacity
-          by launching instances across subnets and scaling to meet policy targets.
-          Health checks ensured only healthy instances served traffic.
-        </p>
+      <section aria-labelledby="overview"><h2 id="overview">Overview</h2>
+        <p>I deployed a web tier in <em>us-east-1</em> using EC2 Launch Templates and an Auto Scaling Group with desired capacity, health checks, and tagging. The group added instances to maintain capacity, as shown in the scaling activity.</p>
       </section>
-
-      <section aria-labelledby="architecture">
-        <h2 id="architecture">Architecture highlights</h2>
-        <ul>
-          <li>EC2 Launch Template for immutable configuration (AMI, instance type, SGs)</li>
-          <li>Auto Scaling Group with min/desired/max capacity and activity history</li>
-          <li>Target group integration for load-balanced HTTP service (lab setup)</li>
-          <li>Tags and IAM roles for easier operations and logging</li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="skills">
-        <h2 id="skills">Skills learned</h2>
+      <section aria-labelledby="skills"><h2 id="skills">Skills &amp; Outcomes (per rubric)</h2>
         <ul>
           <li>AWS EC2, Launch Templates, and Auto Scaling Groups</li>
-          <li>Target groups / health checks basics</li>
-          <li>VPC networking, subnets, and security group rules</li>
-          <li>Operational hygiene: tagging, IAM roles, and activity audits</li>
+          <li>Target groups and health checks basics</li>
+          <li>VPC networking and security groups</li>
+          <li>Operational tagging, IAM roles, and activity auditing</li>
         </ul>
       </section>
     </article>
   </main>
-
-  <footer>
-    <p>© 2025 Celeste Seeley</p>
-  </footer>
+  <footer><p>© 2025 Celeste Seeley</p></footer>
 </body>
 </html>

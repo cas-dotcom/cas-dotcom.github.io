@@ -36,8 +36,8 @@
           <p class="tagline">it analyst • windows • m365 • active directory • networking</p>
           <p>
             <a href="mailto:caseeley12@gmail.com" class="btn">email me</a>
-            <a href="resume/Celeste-Seeley-resume.docx" class="btn" download>.docx resume</a>
-            <a href="resume/Celeste-Seeley-resume.pdf" class="btn" download>pdf resume</a>
+            <a href="resume/Celeste-Seeley-Resume.docx" class="btn" download>.docx resume</a>
+            <a href="#" class="btn" onclick="printResume();return false;">pdf resume</a>
           </p>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <a href="index.html" aria-current="page">home</a>
           <a href="project1.html">project 1</a>
           <a href="project2.html">project 2</a>
-          <a href="resume/Celeste-Seeley-resume.pdf" download>download pdf</a>
+          <a href="#" class="btn" onclick="printResume();return false;">download pdf</a>
         </nav>
 
         <div class="widget window">
@@ -134,7 +134,26 @@
           </div>
         </section>
         <hr class="glitter" aria-hidden="true">
-      </main>
+      
+<section aria-labelledby="projects">
+  <h2 id="projects">Projects</h2>
+  <ul class="project-cards" style="list-style:none;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+    <li style="background:rgba(255,255,255,.85);border-radius:16px;padding:12px;box-shadow:0 6px 24px rgba(0,0,0,.15);">
+      <a href="project1.html" style="display:block">
+        <img src="assets/images/project-dns-cli.png" alt="DNS dig lab thumbnail" style="width:100%;height:auto;border-radius:12px;">
+        <h3 style="margin:.5rem 0 0;">DNS &amp; Email MX Lookup (CNT 4714)</h3>
+      </a>
+    </li>
+    <li style="background:rgba(255,255,255,.85);border-radius:16px;padding:12px;box-shadow:0 6px 24px rgba(0,0,0,.15);">
+      <a href="project2.html" style="display:block">
+        <img src="assets/images/project-aws-autoscaling.png" alt="AWS Auto Scaling thumbnail" style="width:100%;height:auto;border-radius:12px;">
+        <h3 style="margin:.5rem 0 0;">AWS Auto Scaling Web App (CNT 4603)</h3>
+      </a>
+    </li>
+  </ul>
+</section>
+
+</main>
     </div>
 
     <footer class="footer window">
